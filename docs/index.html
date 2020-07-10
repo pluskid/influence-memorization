@@ -9,9 +9,9 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script>
-      function change_img_url(tag) {
-        var x = document.getElementById(tag + "-slider").value;
-        document.getElementById(tag + "-img").src = "imgs/influence-egs-" + tag + "-" + x + ".jpg";
+      function change_img_url(data, tag) {
+        var x = document.getElementById(data + "-" + tag + "-slider").value;
+        document.getElementById(data + "-" + tag + "-img").src = "imgs/" + tag + "-egs-" + data + "-" + x + ".jpg";
       }
     </script>
     <style>
@@ -176,9 +176,38 @@
     </div>
   </section>
   <section class="section pt-1">
-    <!-- MNIST -->
     <div class="container">
-      <h1 class="title is-4 mb-2">ImageNet Visualization</h1>
+      <h1 class="title is-4 mb-2">Memorization Visualization</h1>
+      <p class="mb-4">
+        We show a histogram of the memorization estimation of all the training examples.
+        Use the slider below to select example visualizations around different memorization estimation
+        for a random subset of classes. The caption on top of each image shows the memorization
+        estimation of that instance.
+      </p>
+    </div>
+    <div class="container">
+      <figure class="image is-fullwidth">
+        <img src="imgs/memorization-hist-imagenet-18bins.svg">
+      </figure>
+      <article class="media">
+        <div class="media-left">
+          <span style="width: 3em; display: block;"></span>
+        </div>
+        <div class="media-content">
+          <form style="width: 100%;">
+            <input type="range" min="0" max="4" value="0" step="1" id="imagenet-mem-slider"
+                   style="width: 100%;" onchange="change_img_url('imagenet', 'mem')">
+          </form>
+        </div>
+      </article>
+      <figure class="image is-fullwidth">
+        <img id="imagenet-mem-img" src="imgs/mem-egs-imagenet-2.jpg">
+      </figure>
+    </div>
+  </section>
+  <section class="section pt-1">
+    <div class="container">
+      <h1 class="title is-4 mb-2">Influence Visualization</h1>
       <p class="mb-4">
         We show a histogram of the influence estimation of selected <em>high influence pairs</em>
         (<var>mem</var> &GreaterEqual; 0.25, <var>infl</var> &GreaterEqual; 0.15,
@@ -199,14 +228,14 @@
           <span style="width: 3em; display: block;"></span>
         </div>
         <div class="media-content">
-          <form onchange="showVal()" style="width: 100%;">
-            <input type="range" min="0" max="13" value="10" step="1" id="imagenet-slider"
-                   style="width: 100%;" onchange="change_img_url('imagenet')">
+          <form style="width: 100%;">
+            <input type="range" min="0" max="13" value="10" step="1" id="imagenet-influence-slider"
+                   style="width: 100%;" onchange="change_img_url('imagenet', 'influence')">
           </form>
         </div>
       </article>
       <figure class="image is-fullwidth">
-        <img id="imagenet-img" src="imgs/influence-egs-imagenet-10.jpg">
+        <img id="imagenet-influence-img" src="imgs/influence-egs-imagenet-10.jpg">
       </figure>
     </div>
   </section>
