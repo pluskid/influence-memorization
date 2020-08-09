@@ -84,7 +84,7 @@
 
       <div class="content">
         <p>
-          <b>Abstract</b>:  
+          <b>Abstract</b>:
           Deep learning algorithms are well-known to have a propensity for fitting the training data very well and often fit
           even outliers and mislabeled data points. Such fitting requires memorization of training data labels, a phenomenon
           that has attracted significant research interest but has not been given a compelling explanation so far. A recent work
@@ -103,34 +103,34 @@
           quantitative and visually compelling evidence for the theory put forth in [<a href="https://arxiv.org/abs/1906.05271">Fel19</a>].
         </p>
 
-        <h1 class="title is-4 mb-2" id="imagenet-dl">ImageNet Pre-computed Memorization and Influence Estimations</h1>
+        <h1 class="title is-4 mb-2" id="imagenet-dl">ImageNet Pre-computed Memorization and Influence Value Estimates</h1>
         <p>
-          We provide pre-computed memorization and influence estimation on ImageNet for download here. The estimations
+          We provide pre-computed memorization and influence value estimates on ImageNet for download here. The estimates
           are computed by training 2,000 ResNet-50 models, each on a random 70% subset of the full ImageNet training set.
           <ul>
             <li>
-              <a href="data/imagenet_high_infl_pairs_infl0.15_mem0.25.npz">High influence pairs</a>
+              <a href="data/imagenet_high_infl_pairs_infl0.15_mem0.25.npz">High-influence pairs</a>
               contains four arrays of equal length. <code>tr_idx</code> and <code>tt_idx</code> contains the
-              index of the training and test examples, respectively, from each of the selected high influence
-              pairs. <code>infl</code> contains the influence estimation of each pair, and <code>mem</code> contains
-              the memorization estimation of the training example in each of the selected pairs.
+              index of the training and test examples, respectively, from each of the selected high-influence
+              pairs. <code>infl</code> contains the influence value estimates of each pair, and <code>mem</code> contains
+              the memorization value estimates of the training example in each of the selected pairs.
             </li>
             <li>
               <a href="data/imagenet_index.npz">ImageNet index</a> contains indexing information. Since there is
               no pre-defined order of the ImageNet images, we choose an arbitrary data order in our experiments.
               In this file, we provide the image filenames and labels listed by the data order in our experiments
-              to help identifying the images associated with each influence and memorization estimation. In particular,
+              to help identifying the images associated with each influence and memorization value estimates. In particular,
               <code>tr_filenames</code> and <code>tr_labels</code> contains the filenames and labels of the training set.
               <code>tt_filenames</code> and <code>tt_labels</code> contains the filenames and labels of the test set.
-              We also provide <code>tr_mem</code> which contains the memorization estimation for all the training examples.
+              We also provide <code>tr_mem</code> which contains the memorization value estimates for all the training examples.
             </li>
             <li>
-              <p>Classwise influence matrices contains the
+              <p>Class-wise influence matrices contains the
               <var>n_train</var>-by-<var>n_test</var> influence matrices for each class. Because the influence matrix over the
               entire training and test set is too big (250 GB+), we only provide the per-class influence matrices. For
               each class <code>K</code>, the array <code>tr_classidx_{K}</code> and <code>tt_classidx_{K}</code> provides
               the index of examples that belong to class <code>K</code> in the training set and test set, respectively.
-              The value <code>infl_matrix_class{K}[i, j]</code> is the influence of the <code>i</code>-th training
+              The value <code>infl_matrix_class{K}[i, j]</code> is the influence value of the <code>i</code>-th training
               example in class <code>K</code> on the <code>j</code>-th test example in class <code>K</code>.
               </p>
               <p>
@@ -146,29 +146,29 @@
           </ul>
         </p>
 
-        <h1 class="title is-4 mb-2" id="cifar100-dl">CIFAR-100 Pre-computed Memorization and Influence Estimations</h1>
+        <h1 class="title is-4 mb-2" id="cifar100-dl">CIFAR-100 Pre-computed Memorization and Influence Value Estimates</h1>
         <p>
-          We provide pre-computed memorization and influence estimation on CIFAR-100 for download here. The estimations
+          We provide pre-computed memorization and influence value estimates on CIFAR-100 for download here. The estimates
           are computed by training 4,000 ResNet-50 models, each on a random 70% subset of the full CIFAR-100 training set.
-          The estimations are provided in the original data order from the
+          The estimates are provided in the original data order from the
           <a href="https://www.cs.toronto.edu/~kriz/cifar.html">official CIFAR-100 website</a>. We also provide
           <code>tr_labels</code> and <code>tt_labels</code> to help sanity check the data ordering.
           <ul>
             <li>
-              <a href="data/cifar100_high_infl_pairs_infl0.15_mem0.25.npz">High influence pairs</a>
+              <a href="data/cifar100_high_infl_pairs_infl0.15_mem0.25.npz">High-influence pairs</a>
               contains four arrays of equal length. <code>tr_idx</code> and <code>tt_idx</code> contains the
-              index of the training and test examples, respectively, from each of the selected high influence
-              pairs. <code>infl</code> contains the influence estimation of each pair, and <code>mem</code> contains
-              the memorization estimation of the training example in each of the selected pairs.
+              index of the training and test examples, respectively, from each of the selected high-influence
+              pairs. <code>infl</code> contains the influence estimates for all pairs, and <code>mem</code> contains
+              the memorization value estimates of the training example in each of the selected pairs.
             </li>
             <li>
-              <a href="data/cifar100_infl_matrix.npz">Classwise influence matrices</a> contains the
+              <a href="data/cifar100_infl_matrix.npz">Class-wise influence matrices</a> contains the
               <var>n_train</var>-by-<var>n_test</var> influence matrices for each class <code>K</code>
               in the array with name <code>infl_matrix_class{K}</code>. The array <code>tr_classidx_{K}</code>
               and <code>tt_classidx_{K}</code> provides the index of examples that belong to class <code>K</code>
               in the training set and test set, respectively. <code>tr_labels</code> and <code>tt_labels</code>
               provide the labels on the training set and test set, respectively, to help sanity check the data ordering.
-              Finally, <code>tr_mem</code> contains the memorization estimation for all the training examples.
+              Finally, <code>tr_mem</code> contains the memorization value estimates for all the training examples.
             </li>
           </ul>
         </p>
@@ -177,12 +177,12 @@
   </section>
   <section class="section pt-1">
     <div class="container">
-      <h1 class="title is-4 mb-2">Memorization Visualization</h1>
+      <h1 class="title is-4 mb-2">Memorization Value Examples</h1>
       <p class="mb-4">
-        We show a histogram of the memorization estimation of all the training examples.
-        Use the slider below to select example visualizations around different memorization estimation
-        for a random subset of classes. The caption on top of each image shows the memorization
-        estimation of that instance.
+        We show a histogram of the memorization value estimates of all the training examples.
+        Use the slider below to select example visualizations around different memorization values 
+        for a random subset of classes. The caption on top of each image shows the memorization value estimate
+        of that image.
       </p>
     </div>
     <div class="container">
@@ -207,16 +207,16 @@
   </section>
   <section class="section pt-1">
     <div class="container">
-      <h1 class="title is-4 mb-2">Influence Visualization</h1>
+      <h1 class="title is-4 mb-2">High-Influence Value Examples</h1>
       <p class="mb-4">
-        We show a histogram of the influence estimation of selected <em>high influence pairs</em>
+        We show a histogram of the influence value estimates of selected <em>high-influence pairs</em>
         (<var>mem</var> &GreaterEqual; 0.25, <var>infl</var> &GreaterEqual; 0.15,
         see <a href="http://vtaly.net/papers/FZ_Infl_mem.pdf">the paper</a> for more details).
-        Use the slider below to select example visualizations around different influence estimation.
+        Use the slider below to select example visualizations around different values of influence estimates.
         In each row of the visualization, the first column shows an image from the training set (the caption on the top of the
-        image shows the <em>memorization estimation</em>). The
-        remaining columns show images from the test set, ranked by the <em>influence estimation</em> (also shown in the caption).
-        So the first two images in each row form a <em>high influence pair</em>.
+        image shows the <em>memorization value estimate</em>). The
+        remaining columns show images from the test set, ranked by the <em>influence value estimate</em> (also shown in the caption).
+        So the first two images in each row form a <em>high-influence pair</em>.
       </p>
     </div>
     <div class="container">
