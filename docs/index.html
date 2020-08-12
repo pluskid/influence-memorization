@@ -13,11 +13,28 @@
         var x = document.getElementById(data + "-" + tag + "-slider").value;
         document.getElementById(data + "-" + tag + "-img").src = "imgs/" + tag + "-egs-" + data + "-" + x + ".jpg";
       }
+      function opentab(event) {
+        var tab_buttons = document.getElementsByClassName("tab-button");
+        var tab_contents = document.getElementsByClassName("tab-content");
+        var i;
+        for (i = 0; i < tab_buttons.length; ++i) {
+          if (event.currentTarget == tab_buttons[i]) {
+            tab_buttons[i].parentNode.classList.add("is-active");
+            tab_contents[i].style.display = "block";
+          } else {
+            tab_buttons[i].parentNode.classList.remove("is-active");
+            tab_contents[i].style.display = "none";
+          }
+        }
+      }
     </script>
     <style>
       var {
         font-family: monospace;
         font-style: normal;
+      }
+      .tab-content {
+        display: none;
       }
     </style>
   </head>
@@ -102,7 +119,25 @@
           the significant benefits of memorization for generalization on several standard benchmarks. They also provide
           quantitative and visually compelling evidence for the theory put forth in [<a href="https://arxiv.org/abs/1906.05271">Fel19</a>].
         </p>
+      </div>
+    </div>
+  </section>
 
+  <section class="section pt-1">
+    <div class="container">
+      <div class="tabs is-boxed">
+      <ul>
+        <li class="is-active"><a class="tab-button" onclick='opentab(event)'>Downloads</a></li>
+        <li><a class="tab-button" onclick='opentab(event)'>ImageNet Visualization</a></li>
+        <li><a class="tab-button" onclick='opentab(event)'>CIFAR-100 Visualization</a></li>
+      </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-1 tab-content" style="display: block;">
+    <div class="container">
+      <div class="content">
         <h1 class="title is-4 mb-2" id="imagenet-dl">ImageNet Pre-computed Memorization and Influence Value Estimates</h1>
         <p>
           We provide pre-computed memorization and influence value estimates on ImageNet for download here. The estimates
@@ -146,7 +181,7 @@
           </ul>
         </p>
 
-        <h1 class="title is-4 mb-2" id="cifar100-dl">CIFAR-100 Pre-computed Memorization and Influence Value Estimates</h1>
+        <h1 class="title is-4 mb-2 pt-4" id="cifar100-dl">CIFAR-100 Pre-computed Memorization and Influence Value Estimates</h1>
         <p>
           We provide pre-computed memorization and influence value estimates on CIFAR-100 for download here. The estimates
           are computed by training 4,000 ResNet-50 models, each on a random 70% subset of the full CIFAR-100 training set.
@@ -176,7 +211,7 @@
     </div>
   </section>
 
-  <section class="section pt-1">
+  <section class="section pt-1 tab-content">
     <div class="container">
       <h1 class="title is-4 mb-2">ImageNet Memorization Value Examples</h1>
       <p class="mb-4">
@@ -205,10 +240,7 @@
         <img id="imagenet-mem-img" src="imgs/mem-egs-imagenet-3.jpg">
       </figure>
     </div>
-  </section>
-
-  <section class="section pt-1">
-    <div class="container">
+    <div class="container pt-4">
       <h1 class="title is-4 mb-2">ImageNet High-Influence Value Examples</h1>
       <p class="mb-4">
         We show a histogram of the influence value estimates of selected <em>high-influence pairs</em>
@@ -242,7 +274,7 @@
     </div>
   </section>
 
-  <section class="section pt-1">
+  <section class="section pt-1 tab-content">
     <div class="container">
       <h1 class="title is-4 mb-2">CIFAR-100 Memorization Value Examples</h1>
       <p class="mb-4">
@@ -271,10 +303,7 @@
         <img id="cifar100-mem-img" src="imgs/mem-egs-cifar100-3.jpg">
       </figure>
     </div>
-  </section>
-
-  <section class="section pt-1">
-    <div class="container">
+    <div class="container pt-4">
       <h1 class="title is-4 mb-2">CIFAR-100 High-Influence Value Examples</h1>
       <p class="mb-4">
         We show a histogram of the influence value estimates of selected <em>high-influence pairs</em>
