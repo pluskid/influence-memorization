@@ -175,9 +175,10 @@
       </div>
     </div>
   </section>
+
   <section class="section pt-1">
     <div class="container">
-      <h1 class="title is-4 mb-2">Memorization Value Examples</h1>
+      <h1 class="title is-4 mb-2">ImageNet Memorization Value Examples</h1>
       <p class="mb-4">
         We show a histogram of the memorization value estimates of all the training examples.
         Use the slider below to select example visualizations around different memorization values 
@@ -195,19 +196,20 @@
         </div>
         <div class="media-content">
           <form style="width: 100%;">
-            <input type="range" min="0" max="4" value="0" step="1" id="imagenet-mem-slider"
+            <input type="range" min="0" max="4" value="3" step="1" id="imagenet-mem-slider"
                    style="width: 100%;" onchange="change_img_url('imagenet', 'mem')">
           </form>
         </div>
       </article>
       <figure class="image is-fullwidth">
-        <img id="imagenet-mem-img" src="imgs/mem-egs-imagenet-2.jpg">
+        <img id="imagenet-mem-img" src="imgs/mem-egs-imagenet-3.jpg">
       </figure>
     </div>
   </section>
+
   <section class="section pt-1">
     <div class="container">
-      <h1 class="title is-4 mb-2">High-Influence Value Examples</h1>
+      <h1 class="title is-4 mb-2">ImageNet High-Influence Value Examples</h1>
       <p class="mb-4">
         We show a histogram of the influence value estimates of selected <em>high-influence pairs</em>
         (<var>mem</var> &GreaterEqual; 0.25, <var>infl</var> &GreaterEqual; 0.15,
@@ -236,6 +238,72 @@
       </article>
       <figure class="image is-fullwidth">
         <img id="imagenet-influence-img" src="imgs/influence-egs-imagenet-10.jpg">
+      </figure>
+    </div>
+  </section>
+
+  <section class="section pt-1">
+    <div class="container">
+      <h1 class="title is-4 mb-2">CIFAR-100 Memorization Value Examples</h1>
+      <p class="mb-4">
+        We show a histogram of the memorization value estimates of all the training examples.
+        Use the slider below to select example visualizations around different memorization values
+        for a random subset of classes. The caption on top of each image shows the memorization value estimate
+        of that image.
+      </p>
+    </div>
+    <div class="container">
+      <figure class="image is-fullwidth">
+        <img src="imgs/memorization-hist-cifar100-18bins.svg">
+      </figure>
+      <article class="media">
+        <div class="media-left">
+          <span style="width: 3em; display: block;"></span>
+        </div>
+        <div class="media-content">
+          <form style="width: 100%;">
+            <input type="range" min="0" max="4" value="3" step="1" id="cifar100-mem-slider"
+                   style="width: 100%;" onchange="change_img_url('cifar100', 'mem')">
+          </form>
+        </div>
+      </article>
+      <figure class="image is-fullwidth">
+        <img id="cifar100-mem-img" src="imgs/mem-egs-cifar100-3.jpg">
+      </figure>
+    </div>
+  </section>
+
+  <section class="section pt-1">
+    <div class="container">
+      <h1 class="title is-4 mb-2">CIFAR-100 High-Influence Value Examples</h1>
+      <p class="mb-4">
+        We show a histogram of the influence value estimates of selected <em>high-influence pairs</em>
+        (<var>mem</var> &GreaterEqual; 0.25, <var>infl</var> &GreaterEqual; 0.15,
+        see <a href="http://vtaly.net/papers/FZ_Infl_mem.pdf">the paper</a> for more details).
+        Use the slider below to select example visualizations around different values of influence estimates.
+        In each row of the visualization, the first column shows an image from the training set (the caption on the top of the
+        image shows the <em>memorization value estimate</em>). The
+        remaining columns show images from the test set, ranked by the <em>influence value estimate</em> (also shown in the caption).
+        So the first two images in each row form a <em>high-influence pair</em>.
+      </p>
+    </div>
+    <div class="container">
+      <figure class="image is-fullwidth">
+        <img src="imgs/influence-hist-cifar100-18bins.svg">
+      </figure>
+      <article class="media">
+        <div class="media-left">
+          <span style="width: 3em; display: block;"></span>
+        </div>
+        <div class="media-content">
+          <form style="width: 100%;">
+            <input type="range" min="0" max="15" value="14" step="1" id="cifar100-influence-slider"
+                   style="width: 100%;" onchange="change_img_url('cifar100', 'influence')">
+          </form>
+        </div>
+      </article>
+      <figure class="image is-fullwidth">
+        <img id="cifar100-influence-img" src="imgs/influence-egs-cifar100-14.jpg">
       </figure>
     </div>
   </section>
