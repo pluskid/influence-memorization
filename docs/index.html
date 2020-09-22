@@ -62,19 +62,17 @@
               </div>
             </a>
         </div>
-        <!--
         <div class="control">
-            <a href="#">
+            <a href="https://github.com/google-research/heldout-influence-estimation">
               <div class="tags has-addons">
                 <span class="tag is-dark">
                   <span class="icon"><i class="fas fa-code-branch"></i></span>
                   &nbsp;Code
                 </span>
-                <span class="tag is-info">coming soon</span>
+                <span class="tag is-info">github</span>
               </div>
             </a>
         </div>
-        -->
         <div class="control">
             <a href="#imagenet-dl">
               <div class="tags has-addons">
@@ -158,6 +156,9 @@
               <code>tr_filenames</code> and <code>tr_labels</code> contains the filenames and labels of the training set.
               <code>tt_filenames</code> and <code>tt_labels</code> contains the filenames and labels of the test set.
               We also provide <code>tr_mem</code> which contains the memorization value estimates for all the training examples.
+              See <a href="https://github.com/google-research/heldout-influence-estimation/tree/master/tools/imagenet-tfrecords-builder">here</a>
+              for an example of using this information to build an ImageNet tfrecord dataset with index information from
+              the raw ImageNet images.
             </li>
             <li>
               <p>Class-wise influence matrices contains the
@@ -206,6 +207,14 @@
               Finally, <code>tr_mem</code> contains the memorization value estimates for all the training examples.
             </li>
           </ul>
+        </p>
+
+
+        <h1 class="title is-4 mb-2 pt-4">Pre-trained Model Checkpoints</h1>
+        <p>
+          We also released the checkpoints for the models trained with different heldout subsets.
+          The download links and details on how to load those checkpoints can be found
+          <a href="https://github.com/google-research/heldout-influence-estimation">here</a>.
         </p>
       </div>
     </div>
